@@ -8,13 +8,15 @@
       GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
       本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
       如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
-    -->    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/themes/default/favicon.svg" />
+    -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/themes/star/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <meta name="theme-color" content="#04061a" />
     
-    <script type="module" crossorigin src="/themes/default/assets/index-Cahjj9-c.js"></script>
-    <link rel="stylesheet" crossorigin href="/themes/default/assets/index-4lO5hHpz.css">
+    <script type="module" crossorigin src="/themes/star/assets/index-BW5PvU40.js"></script>
+    <link rel="stylesheet" crossorigin href="/themes/star/assets/index-Ced7V4eW.css">
       <title>用 Vue 3 组合式 API 组织前端代码 · ycms2.0</title>
     <meta name="description" content="setup、ref、computed、watch……组合式 API 如何让大型前端项目的逻辑复用变得优雅？" />
     <meta name="keywords" content="用 Vue 3 组合式 API 组织前端代码, 技术随笔, ycms,技术博客,星空,PHP,Vue" />
@@ -33,36 +35,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"http://localhost/"},{"@type":"ListItem","position":2,"name":"文章","item":"http://localhost/posts"},{"@type":"ListItem","position":3,"name":"用 Vue 3 组合式 API 组织前端代码","item":"http://localhost/post/vue3-composition-api"}]}</script>
   </head>
   <body>
-    <div id="app"><article class="y-container-narrow py-12">
-  <nav class="flex items-center gap-2 text-xs text-[var(--y-text-muted)] mb-6" aria-label="面包屑">
-    <a href="/" class="hover:text-[var(--y-primary)] transition-colors duration-200">首页</a>
-    <span>/</span>
-    <a href="/posts" class="hover:text-[var(--y-primary)] transition-colors duration-200">文章</a>
-    
-    <span>/</span>
-    <a href="/category/1" class="hover:text-[var(--y-primary)] transition-colors duration-200">技术随笔</a>
-    
-  </nav>
+    <div id="app"><article class="relative pt-28 pb-10">
+  <div class="max-w-3xl mx-auto px-5">
+    <nav class="flex items-center gap-2 text-xs text-star-dim mb-8" aria-label="面包屑">
+      <a href="/" class="hover:text-star-glow transition-colors duration-300">首页</a>
+      <span>/</span>
+      <a href="/posts" class="hover:text-star-glow transition-colors duration-300">文章</a>
+      
+      <span>/</span>
+      <a href="/category/1" class="hover:text-star-glow transition-colors duration-300">技术随笔</a>
+      
+    </nav>
 
-  <header class="mb-8">
-    <h1 class="text-2xl md:text-4xl font-bold text-[var(--y-text)] leading-tight mb-4">用 Vue 3 组合式 API 组织前端代码</h1>
-    <div class="flex flex-wrap items-center gap-3 text-xs">
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        
+        <a class="tag-category" href="/category/1">技术随笔</a>
+        
+        <span class="text-meta">2026-10-25</span>
+        <span class="text-meta">0 次阅读</span>
+        
+        <span class="text-meta">@星尘管理员</span>
+        
+      </div>
+
+      <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.25] mb-5">用 Vue 3 组合式 API 组织前端代码</h1>
+
       
-      <a class="y-tag y-tag-primary" href="/category/1">技术随笔</a>
-      
-      <span class="text-[var(--y-text-muted)]">2026-10-25</span>
-      <span class="text-[var(--y-text-muted)]">0 次阅读</span>
-      
-      <span class="text-[var(--y-text-muted)]">@星尘管理员</span>
-      
-    </div>
+    </header>
+
     
-  </header>
 
-  
-
-  <div class="y-card p-6 md:p-9">
-    <div class="y-prose"><h2>组合式 API 的魅力</h2>
+    <div class="glass p-7 md:p-10">
+      <div class="markdown-body"><h2>组合式 API 的魅力</h2>
 <p>Vue 3 的组合式 API 让我们可以按功能逻辑组织代码，而不是按选项类型拆分。</p>
 <pre><code class="language-vue">&lt;script setup&gt;
 import { ref, computed } from &#039;vue&#039;
@@ -75,51 +80,34 @@ const double = computed(() =&gt; count.value * 2)
 <h3>实战建议</h3>
 <ol><li>将可复用逻辑抽取为 <code>useXxx</code> 组合式函数</li><li>使用 Pinia 管理跨组件状态</li><li>合理拆分组件，保持单一职责</li></ol>
 <p>星空浩瀚，代码亦当如此：结构清晰，各安其位。</p></div>
-  </div>
-
-  
-
-  
-  <section class="mt-12">
-    <div class="y-section-title">相关文章</div>
-    <div class="grid sm:grid-cols-2 gap-3">
-      
-      <a class="y-card y-card-hover p-4 group block" href="/post/welcome-to-ycms2">
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="y-tag y-tag-primary">技术随笔</span>
-          <span class="text-[var(--y-text-muted)]">6</span>
-        </div>
-        <h2 class="font-semibold text-[var(--y-text)] group-hover:text-[var(--y-primary)] transition-colors duration-200 text-sm leading-snug">欢迎来到 ycms2.0</h2>
-        
-        <p class="text-xs text-[var(--y-text-muted)] mt-1.5 leading-relaxed">一个用 PHP 8.2+ 与 Vue 3 打造的星空风格内容管理系统，本文带你快速了解它的全部功能。</p>
-        
-      </a>
-      
-      <a class="y-card y-card-hover p-4 group block" href="/post/php-82-features">
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="y-tag y-tag-primary">技术随笔</span>
-          <span class="text-[var(--y-text-muted)]">3</span>
-        </div>
-        <h2 class="font-semibold text-[var(--y-text)] group-hover:text-[var(--y-primary)] transition-colors duration-200 text-sm leading-snug">PHP 8.2 的新特性速览</h2>
-        
-        <p class="text-xs text-[var(--y-text-muted)] mt-1.5 leading-relaxed">只读类、独立类型、 trait 常量、敏感参数隐藏…… PHP 8.2 带来了哪些值得关注的改进？</p>
-        
-      </a>
-      
-      <a class="y-card y-card-hover p-4 group block" href="/post/why-i-choose-sqlite">
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="y-tag y-tag-primary">技术随笔</span>
-          <span class="text-[var(--y-text-muted)]">0</span>
-        </div>
-        <h2 class="font-semibold text-[var(--y-text)] group-hover:text-[var(--y-primary)] transition-colors duration-200 text-sm leading-snug">为什么我选择 SQLite</h2>
-        
-        <p class="text-xs text-[var(--y-text-muted)] mt-1.5 leading-relaxed">零配置、单文件、WAL 模式——对于中小型站点，SQLite 是被低估的王者。</p>
-        
-      </a>
-      
     </div>
-  </section>
-  
+
+    
+
+    
+    <section class="mt-12">
+      <div class="text-[11px] tracking-[0.3em] text-star-dim mb-4">RELATED</div>
+      <div class="space-y-3">
+        
+        <a class="glass p-4 flex items-center justify-between gap-4 group hover-lift" href="/post/welcome-to-ycms2">
+          <span class="text-sm text-slate-300 group-hover:text-white transition-colors duration-300 line-clamp-1">欢迎来到 ycms2.0</span>
+          <span class="text-meta flex-shrink-0">6</span>
+        </a>
+        
+        <a class="glass p-4 flex items-center justify-between gap-4 group hover-lift" href="/post/php-82-features">
+          <span class="text-sm text-slate-300 group-hover:text-white transition-colors duration-300 line-clamp-1">PHP 8.2 的新特性速览</span>
+          <span class="text-meta flex-shrink-0">3</span>
+        </a>
+        
+        <a class="glass p-4 flex items-center justify-between gap-4 group hover-lift" href="/post/why-i-choose-sqlite">
+          <span class="text-sm text-slate-300 group-hover:text-white transition-colors duration-300 line-clamp-1">为什么我选择 SQLite</span>
+          <span class="text-meta flex-shrink-0">0</span>
+        </a>
+        
+      </div>
+    </section>
+    
+  </div>
 </article>
 </div>
   </body>

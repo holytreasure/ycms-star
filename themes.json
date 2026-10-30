@@ -1,24 +1,24 @@
 {
-    "generated_at": "2026-10-30T14:40:01.120Z",
+    "generated_at": "2026-10-30T15:27:59.071Z",
     "core_version": "2.0.1",
-    "repository": "sjzyingyunkeji/ycms-2.0",
-    "flavor": "default",
+    "repository": "holytreasure/ycms-star",
+    "flavor": "star",
     "themes": {
-        "default": {
-            "slug": "default",
-            "name": "默认主题",
-            "version": "2.0.1",
+        "star": {
+            "slug": "star",
+            "name": "星空主题",
+            "version": "1.0.0",
             "author": "影云网络科技（石家庄）有限公司",
-            "description": "YCMS 2.0 内置主题（扁平商务风，Arco Design Vue + 胶囊导航）",
+            "description": "YCMS 2.0 星空星光主题（Canvas 三层star + 流星 + 玻璃拟态 + 紫青极光）",
             "license": "AGPL-3.0",
             "requires": {
                 "core": ">=2.0.1"
             },
             "preview": "preview.jpg",
-            "package": "ycms-theme-default-2.0.1.zip",
-            "size": 441425,
-            "sha256": "0c24e0c728d0344e7cb1474a152b4c553be78b1e3b758f1f7cb26be3827e8a1e",
-            "url": "https://github.com/sjzyingyunkeji/ycms-2.0/releases/download/v2.0.1/ycms-theme-default-2.0.1.zip"
+            "package": "ycms-theme-star-1.0.0.zip",
+            "size": 440337,
+            "sha256": "53778c755aace2c6088dca0f410499767e5b9b4efaeb20d22be2b571d6903dcd",
+            "url": "https://github.com/holytreasure/ycms-star/releases/download/v2.0.1/ycms-theme-star-1.0.0.zip"
         }
     }
 }

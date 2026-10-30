@@ -25,11 +25,11 @@
         "signature": "39GEf64atyI0UpozdThiStt6V01+5UrORH9m+wxU71MEb8z2upuIC9EP8cIP/bEQHmY1nQ236cXW+21SNuIVDw=="
     },
     "themes": {
-        "default": {
-            "latest": "2.0.1",
-            "package": "ycms-theme-default-2.0.1.zip",
-            "size": 441425,
-            "sha256": "0c24e0c728d0344e7cb1474a152b4c553be78b1e3b758f1f7cb26be3827e8a1e",
+        "star": {
+            "latest": "1.0.0",
+            "package": "ycms-theme-star-1.0.0.zip",
+            "size": 440337,
+            "sha256": "53778c755aace2c6088dca0f410499767e5b9b4efaeb20d22be2b571d6903dcd",
             "requires": {
                 "core": ">=2.0.1"
             }
