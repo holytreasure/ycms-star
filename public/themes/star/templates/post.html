@@ -1,0 +1,77 @@
+<article class="relative pt-28 pb-10">
+  <div class="max-w-3xl mx-auto px-5">
+    <nav class="flex items-center gap-2 text-xs text-star-dim mb-8" aria-label="面包屑">
+      <a href="/" class="hover:text-star-glow transition-colors duration-300">首页</a>
+      <span>/</span>
+      <a href="/posts" class="hover:text-star-glow transition-colors duration-300">文章</a>
+      {{#has_category}}
+      <span>/</span>
+      <a href="{{category_url}}" class="hover:text-star-glow transition-colors duration-300">{{category_name}}</a>
+      {{/has_category}}
+    </nav>
+
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        {{#has_category}}
+        <a class="tag-category" href="{{category_url}}">{{category_name}}</a>
+        {{/has_category}}
+        <span class="text-meta">{{published_at}}</span>
+        <span class="text-meta">{{views}} 次阅读</span>
+        {{#has_author}}
+        <span class="text-meta">@{{author}}</span>
+        {{/has_author}}
+      </div>
+
+      <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.25] mb-5">{{title}}</h1>
+
+      {{#has_tags}}
+      <div class="flex flex-wrap gap-2">
+        {{#tags}}
+        <a class="tag-post hover:text-star-glow transition-colors duration-300" href="{{url}}">#{{name}}</a>
+        {{/tags}}
+      </div>
+      {{/has_tags}}
+    </header>
+
+    {{#has_cover}}
+    <div class="mb-10 rounded-2xl overflow-hidden border border-white/[0.08]">
+      <img src="{{cover_url}}" alt="{{title}}" class="w-full object-cover" />
+    </div>
+    {{/has_cover}}
+
+    <div class="glass p-7 md:p-10">
+      <div class="markdown-body">{{{content}}}</div>
+    </div>
+
+    {{#has_prev_next}}
+    <nav class="grid md:grid-cols-2 gap-4 mt-8">
+      {{#has_prev}}
+      <a class="glass p-5 group hover-lift" href="{{prev_url}}">
+        <div class="text-[10px] tracking-[0.25em] text-star-dim mb-2">上一篇</div>
+        <div class="text-sm text-slate-300 group-hover:text-star-glow transition-colors duration-300 line-clamp-2">{{prev_title}}</div>
+      </a>
+      {{/has_prev}}
+      {{#has_next}}
+      <a class="glass p-5 group hover-lift md:text-right md:col-start-2" href="{{next_url}}">
+        <div class="text-[10px] tracking-[0.25em] text-star-dim mb-2">下一篇</div>
+        <div class="text-sm text-slate-300 group-hover:text-star-glow transition-colors duration-300 line-clamp-2">{{next_title}}</div>
+      </a>
+      {{/has_next}}
+    </nav>
+    {{/has_prev_next}}
+
+    {{#has_related}}
+    <section class="mt-12">
+      <div class="text-[11px] tracking-[0.3em] text-star-dim mb-4">RELATED</div>
+      <div class="space-y-3">
+        {{#related}}
+        <a class="glass p-4 flex items-center justify-between gap-4 group hover-lift" href="{{url}}">
+          <span class="text-sm text-slate-300 group-hover:text-white transition-colors duration-300 line-clamp-1">{{title}}</span>
+          <span class="text-meta flex-shrink-0">{{views}}</span>
+        </a>
+        {{/related}}
+      </div>
+    </section>
+    {{/has_related}}
+  </div>
+</article>
