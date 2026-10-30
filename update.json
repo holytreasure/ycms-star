@@ -6,7 +6,9 @@
     "min_php": "8.2",
     "published_at": "2026-10-30T23:37:02+08:00",
     "changelog": [
-        "星空版 2.0.1"
+        "星空版 2.0.1",
+        "星空主题独立仓库发布，更新源指向 holytreasure/ycms-star",
+        "docs 与重置工具不再进入安装包、升级包"
     ],
     "breaking": false,
     "changelog_url": "",
