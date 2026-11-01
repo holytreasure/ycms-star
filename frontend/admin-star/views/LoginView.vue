@@ -159,7 +159,7 @@ onMounted(async () => {
 
         <div class="mt-10 flex items-center justify-between text-xs">
           <a href="/" class="text-[var(--y-text-muted)] hover:text-[var(--y-primary)] transition-colors duration-200">← 返回前台</a>
-          <span class="font-mono text-[var(--y-text-disabled)]">v2.0.1</span>
+          <span class="font-mono text-[var(--y-text-disabled)]">v2.0.2</span>
         </div>
       </div>
     </div>
