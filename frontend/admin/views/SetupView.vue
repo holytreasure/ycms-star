@@ -15,6 +15,8 @@ import { useAuthStore } from '../../core/stores/auth.js'
 import { useSiteStore } from '../../core/stores/site.js'
 import { authApi } from '../../core/api/index.js'
 import BrandLogo from '../../shared/components/BrandLogo.vue'
+import StarryBackground from '../../shared/components/StarryBackground.vue'
+import { IS_STAR_ADMIN } from '../../shared/skin.js'
 import { showToast } from '../../core/utils/toast.js'
 
 const auth = useAuthStore()
@@ -100,8 +102,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center px-5 py-16">
-    <div class="w-full max-w-md">
+  <div class="min-h-screen flex items-center justify-center px-5 py-16 relative">
+    <StarryBackground v-if="IS_STAR_ADMIN" />
+    <div class="relative z-10 w-full max-w-md">
       <!-- 标题 -->
       <div class="text-center mb-8">
         <div class="inline-flex items-center justify-center mb-5">

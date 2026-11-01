@@ -95,7 +95,6 @@ function goPage(slug) {
         <!-- Logo -->
         <router-link :to="{ name: 'home' }" class="flex items-center gap-3 group flex-shrink-0">
           <BrandLogo size="md" />
-          <span class="hidden lg:inline text-[10px] tracking-[0.25em] text-star-dim/70 uppercase">Blog</span>
         </router-link>
 
         <!-- 桌面导航 -->

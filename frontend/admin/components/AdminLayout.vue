@@ -107,10 +107,7 @@ onMounted(() => {
       <!-- Logo（文字 / 图片，后台可切换） -->
       <div class="h-16 flex items-center gap-2.5 px-5 border-b border-[var(--y-border)]">
         <BrandLogo size="sm" />
-        <span
-          class="y-tag y-tag-plain !h-[18px] !text-[10px] hidden lg:inline-flex"
-          :class="IS_STAR_ADMIN ? 'star-admin-brand-tag' : ''"
-        >{{ IS_STAR_ADMIN ? 'CONTROL CENTER' : '管理后台' }}</span>
+        <span class="y-tag y-tag-plain !h-[18px] !text-[10px] hidden lg:inline-flex">管理后台</span>
       </div>
 
       <!-- 菜单 -->
