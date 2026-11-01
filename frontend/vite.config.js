@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PUBLIC_DIR = path.resolve(__dirname, '../public')
 const ADMIN_DIR = path.resolve(__dirname, 'admin')
+const ADMIN_STAR_DIR = path.resolve(__dirname, 'admin-star')
 const BACKEND_STORAGE = path.resolve(__dirname, '../backend/storage')
 
 // 主题源码注册表：目录名即构建模式名（site → 默认主题，star → 星空主题）
@@ -48,15 +49,14 @@ function resolveTheme(mode) {
 // 构建时通过常量替换，未命中分支会被 Rollup 静态消除，产物中不留 Pro 代码
 const EDITION = (process.env.YCMS_EDITION || 'oss').toLowerCase() === 'pro' ? 'pro' : 'oss'
 
-// 后台皮肤：星空仓库（只含 star 主题）用星空后台，主仓库用通用扁平 UI。
-// 皮肤差异只体现在 CSS token，后台组件源码全仓共用一份。
+// 后台双份 UI：admin（通用扁平）与 admin-star（星空）各自独立维护，
+// 构建时按仓库形态选择来源目录，产物统一输出到 public/admin/，部署路径不变。
+//   - 主仓库（仅 site 主题）→ frontend/admin
+//   - 星空仓库（仅 star 主题）→ frontend/admin-star
 const ADMIN_SKIN = (process.env.YCMS_ADMIN_SKIN || (THEME_SOURCES.star && !THEME_SOURCES.site ? 'star' : 'default')) === 'star'
   ? 'star'
   : 'default'
-const ADMIN_SKIN_CSS = path.resolve(
-  __dirname,
-  ADMIN_SKIN === 'star' ? 'shared/styles/admin-star.css' : 'shared/styles/ui.css'
-)
+const ADMIN_ROOT = ADMIN_SKIN === 'star' ? ADMIN_STAR_DIR : ADMIN_DIR
 
 const MIME_MAP = {
   '.jpg': 'image/jpeg',
@@ -152,7 +152,7 @@ export default defineConfig(({ mode, command }) => {
   const isDev = command === 'serve'
   // 前台构建按模式选择主题源码：site → 默认主题，star → 星空主题
   const theme = isAdmin ? null : resolveTheme(mode)
-  const root = isAdmin ? ADMIN_DIR : theme.srcDir
+  const root = isAdmin ? ADMIN_ROOT : theme.srcDir
   const themeBase = theme ? `/themes/${theme.slug}/` : '/admin/'
 
   return {
@@ -162,13 +162,6 @@ export default defineConfig(({ mode, command }) => {
     plugins: [vue(), storagePlugin, ...(isAdmin ? [] : [themeActivatePlugin(theme)])],
     define: {
       __YCMS_EDITION__: JSON.stringify(EDITION),
-      __YCMS_ADMIN_SKIN__: JSON.stringify(ADMIN_SKIN),
-    },
-    resolve: {
-      alias: {
-        // 后台皮肤样式：默认 → ui.css，星空 → admin-star.css（两者都基于同一套组件类）
-        '@admin-skin': ADMIN_SKIN_CSS,
-      },
     },
     css: {
       // root 指向 site/ 或 admin/，PostCSS/Tailwind 配置仍从 frontend/ 读取

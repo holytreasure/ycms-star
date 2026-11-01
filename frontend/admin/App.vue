@@ -17,7 +17,6 @@ import { onMounted } from 'vue'
 import { useSiteStore } from '../core/stores/site.js'
 import { useAuthStore } from '../core/stores/auth.js'
 import ToastHost from '../shared/components/ToastHost.vue'
-import { IS_STAR_ADMIN } from '../shared/skin.js'
 
 const site = useSiteStore()
 const auth = useAuthStore()
@@ -30,8 +29,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <!-- 星空皮肤下不能有不透明根背景，否则会盖住 -z-10 的星空 Canvas（底色由 body 提供） -->
-  <div class="min-h-screen" :class="IS_STAR_ADMIN ? '' : 'bg-[var(--y-bg)]'">
+  <div class="min-h-screen bg-[var(--y-bg)]">
     <router-view />
     <ToastHost />
   </div>

@@ -15,8 +15,6 @@ import { useAuthStore } from '../../core/stores/auth.js'
 import { useSiteStore } from '../../core/stores/site.js'
 import { authApi } from '../../core/api/index.js'
 import BrandLogo from '../../shared/components/BrandLogo.vue'
-import StarryBackground from '../../shared/components/StarryBackground.vue'
-import { IS_STAR_ADMIN } from '../../shared/skin.js'
 import { showToast } from '../../core/utils/toast.js'
 
 const auth = useAuthStore()
@@ -75,10 +73,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <!-- 星空皮肤下用 Canvas 星空作为背景层，根节点不能有不透明底色 -->
-  <div class="min-h-screen flex relative">
-    <StarryBackground v-if="IS_STAR_ADMIN" />
-
+  <div class="min-h-screen flex relative bg-[var(--y-bg)]">
     <!-- 左侧品牌区（大屏可见） -->
     <div class="relative z-10 hidden lg:flex w-[46%] xl:w-[42%] flex-col justify-between p-12 bg-[var(--y-surface)] border-r border-[var(--y-border)]">
       <BrandLogo size="lg" />

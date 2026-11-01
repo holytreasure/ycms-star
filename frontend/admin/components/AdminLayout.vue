@@ -14,8 +14,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../core/stores/auth.js'
 import { useSiteStore } from '../../core/stores/site.js'
 import BrandLogo from '../../shared/components/BrandLogo.vue'
-import StarryBackground from '../../shared/components/StarryBackground.vue'
-import { IS_STAR_ADMIN } from '../../shared/skin.js'
+
 
 const route = useRoute()
 const router = useRouter()
@@ -97,12 +96,11 @@ onMounted(() => {
 
 <template>
   <div class="min-h-screen flex relative">
-    <!-- 星空皮肤：与前台同一套 Canvas 星空（三层粒子 + 流星 + 鼠标视差） -->
-    <StarryBackground v-if="IS_STAR_ADMIN" />
+
     <!-- ============ 侧边栏（全尺寸固定，页面滚动时不动） ============ -->
     <aside
       class="fixed inset-y-0 left-0 z-40 w-64 flex flex-col transform transition-transform duration-300 border-r border-[var(--y-border)] bg-[var(--y-surface)]"
-      :class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0', IS_STAR_ADMIN ? 'star-admin-chrome' : '']"
+      :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
     >
       <!-- Logo（文字 / 图片，后台可切换） -->
       <div class="h-16 flex items-center gap-2.5 px-5 border-b border-[var(--y-border)]">
@@ -157,10 +155,7 @@ onMounted(() => {
       </div>
 
       <!-- 顶栏 -->
-      <header
-        class="sticky top-0 z-20 h-16 flex items-center justify-between px-5 border-b border-[var(--y-border)] bg-[var(--y-surface)]"
-        :class="IS_STAR_ADMIN ? 'star-admin-chrome' : ''"
-      >
+      <header class="sticky top-0 z-20 h-16 flex items-center justify-between px-5 border-b border-[var(--y-border)] bg-[var(--y-surface)]">
         <div class="flex items-center gap-4">
           <button class="lg:hidden text-[var(--y-text-secondary)] hover:text-[var(--y-text)] p-2 -ml-2" @click="sidebarOpen = true">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>

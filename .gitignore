@@ -32,3 +32,9 @@ docs/*.local.md
 # 系统/编辑器文件
 .DS_Store
 Thumbs.db
+
+# 更新说明临时文件（由打包脚本产出，不入库）
+update-notes.txt
+
+# 本地记录：远程提交规范（仅在本地参考，不提交）
+docs/误删！！！gitbub提交规范.txt
