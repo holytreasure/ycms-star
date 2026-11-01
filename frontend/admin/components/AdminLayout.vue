@@ -14,6 +14,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../core/stores/auth.js'
 import { useSiteStore } from '../../core/stores/site.js'
 import BrandLogo from '../../shared/components/BrandLogo.vue'
+import StarryBackground from '../../shared/components/StarryBackground.vue'
 import { IS_STAR_ADMIN } from '../../shared/skin.js'
 
 const route = useRoute()
@@ -96,8 +97,8 @@ onMounted(() => {
 
 <template>
   <div class="min-h-screen flex relative">
-    <!-- 星空皮肤：极光氛围层（仅装饰，不拦截交互） -->
-    <div v-if="IS_STAR_ADMIN" class="star-admin-aurora" aria-hidden="true" />
+    <!-- 星空皮肤：与前台同一套 Canvas 星空（三层粒子 + 流星 + 鼠标视差） -->
+    <StarryBackground v-if="IS_STAR_ADMIN" />
     <!-- ============ 侧边栏（全尺寸固定，页面滚动时不动） ============ -->
     <aside
       class="fixed inset-y-0 left-0 z-40 w-64 flex flex-col transform transition-transform duration-300 border-r border-[var(--y-border)] bg-[var(--y-surface)]"

@@ -33,9 +33,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-space-950 text-slate-300 antialiased">
+  <!-- 注意：根节点不能加不透明背景色，否则会盖住 -z-10 的星空 Canvas -->
+  <div class="relative min-h-screen">
     <StarryBackground />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition name="page" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
     <NoiseOverlay />
     <ToastHost />
   </div>
