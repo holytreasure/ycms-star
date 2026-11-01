@@ -184,8 +184,15 @@ onMounted(() => {
               <div class="text-sm text-[var(--y-text)] leading-tight">{{ auth.user?.nickname || auth.user?.username || '管理员' }}</div>
               <div class="text-[10px] text-[var(--y-text-muted)]">管理员</div>
             </div>
-            <div class="w-9 h-9 rounded-full bg-[var(--y-primary)] border border-[var(--y-border)] flex items-center justify-center text-white font-bold text-sm">
-              {{ (auth.user?.nickname || auth.user?.username || 'A').charAt(0) }}
+            <!-- 头像：个人资料保存后 store 同步更新，头像立即刷新 -->
+            <div class="w-9 h-9 rounded-full overflow-hidden bg-[var(--y-primary)] border border-[var(--y-border)] flex items-center justify-center text-white font-bold text-sm">
+              <img
+                v-if="auth.user?.avatar"
+                :src="auth.user.avatar"
+                :alt="auth.user?.nickname || '头像'"
+                class="w-full h-full object-cover"
+              />
+              <span v-else>{{ (auth.user?.nickname || auth.user?.username || 'A').charAt(0) }}</span>
             </div>
           </button>
 

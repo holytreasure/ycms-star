@@ -9,7 +9,6 @@
  */
 
 
-import { computed } from 'vue'
 import { useSiteStore } from '../../core/stores/site.js'
 
 /**
@@ -25,23 +24,12 @@ defineProps({
 const site = useSiteStore()
 
 const imgSizes = { sm: 'w-8 h-8 rounded-lg', md: 'w-9 h-9 rounded-xl', lg: 'w-12 h-12 rounded-2xl' }
-const avatarSizes = { sm: 'w-8 h-8', md: 'w-9 h-9', lg: 'w-12 h-12' }
-
-/** 图标位优先使用博主头像（后台「个人资料」维护），为空时回落到 Logo / 内置图标 */
-const avatar = computed(() => (site.settings.owner_avatar || '').trim())
 </script>
 
 <template>
-  <!-- 博主头像优先占用图标位 -->
-  <img
-    v-if="avatar"
-    :src="avatar"
-    :alt="site.settings.owner_name || site.settings.site_name || 'ycms2.0'"
-    :class="[avatarSizes[size] || avatarSizes.md, 'rounded-full object-cover flex-shrink-0 ring-1 ring-[var(--y-border)]']"
-  />
   <!-- 图片 Logo -->
   <img
-    v-else-if="site.settings.logo_type === 'image' && site.settings.logo_image"
+    v-if="site.settings.logo_type === 'image' && site.settings.logo_image"
     :src="site.settings.logo_image"
     :alt="site.settings.site_name || 'ycms2.0'"
     :class="[imgSizes[size] || imgSizes.md, 'object-cover flex-shrink-0']"

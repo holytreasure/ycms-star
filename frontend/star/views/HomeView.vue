@@ -121,8 +121,15 @@ function formatDate(dateStr) {
     <!-- ============ 关于 ============ -->
     <section v-if="aboutPage" class="relative max-w-6xl mx-auto px-5 -mt-6">
       <div class="glass-medium p-8 md:p-10 flex items-start gap-6 hover-lift">
-        <div class="hidden sm:flex w-12 h-12 rounded-2xl bg-gradient-to-br from-star-violet/25 to-star-cyan/15 border border-white/[0.08] items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6 text-star-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 博主头像（后台个人资料维护），未设置时回落到占位图标 -->
+        <div class="hidden sm:flex w-12 h-12 rounded-2xl bg-gradient-to-br from-star-violet/25 to-star-cyan/15 border border-white/[0.08] items-center justify-center flex-shrink-0 overflow-hidden">
+          <img
+            v-if="site.settings.owner_avatar"
+            :src="site.settings.owner_avatar"
+            :alt="site.settings.owner_name || site.settings.site_name || '博主头像'"
+            class="w-full h-full object-cover"
+          />
+          <svg v-else class="w-6 h-6 text-star-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="4" />
             <path d="M20 21a8 8 0 10-16 0" />
           </svg>
