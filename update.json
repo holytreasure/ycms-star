@@ -18,5 +18,16 @@
         "size": 705706,
         "sha256": "1dbbbd62c3e553050b9616b7d26f424706b2ab90dea8bc65beb9c0702d75f578",
         "signature": "fZbowI/XlmAUAii2P2cgQbIdPgJrb+Sfy0Okgw0UoIpdGaqEh+57Ylz2AfM6LVaa085axJPiK0DqIazMonhYCw=="
+    },
+    "themes": {
+        "star": {
+            "latest": "1.0.0",
+            "package": "ycms-theme-star-1.0.0.zip",
+            "size": 440566,
+            "sha256": "d1fedfd4b55707f31cab0a9fb3cddfa650bd08db794bdc5c867a0a201ec3ed59",
+            "requires": {
+                "core": ">=2.0.2"
+            }
+        }
     }
 }
