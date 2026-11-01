@@ -1,23 +1,23 @@
 {
-    "latest": "2.0.1",
+    "latest": "2.0.2",
     "flavor": "star",
     "channel": "stable",
     "min_version": "2.0.0",
     "min_php": "8.2",
-    "published_at": "2026-10-30T23:37:02+08:00",
+    "published_at": "2026-11-02T00:48:41+08:00",
     "changelog": [
-        "星空版 2.0.1",
-        "星空主题独立仓库发布，更新源指向 holytreasure/ycms-star",
-        "docs 与重置工具不再进入安装包、升级包"
+        "后台拆分为通用版与星空版双 UI，星空版固定使用星空皮肤",
+        "修复单主题仓库站点根入口归属，避免前台页面白屏",
+        "同步主分支改动并升级版本号至 2.0.2"
     ],
     "breaking": false,
     "changelog_url": "",
     "package": {
-        "url": "https://github.com/holytreasure/ycms-star/releases/download/v2.0.1/ycms-2.0.1-star.zip",
+        "url": "https://github.com/holytreasure/ycms-star/releases/download/v2.0.2/ycms-2.0.2-star.zip",
         "mirrors": [],
-        "size": 705706,
-        "sha256": "1dbbbd62c3e553050b9616b7d26f424706b2ab90dea8bc65beb9c0702d75f578",
-        "signature": "fZbowI/XlmAUAii2P2cgQbIdPgJrb+Sfy0Okgw0UoIpdGaqEh+57Ylz2AfM6LVaa085axJPiK0DqIazMonhYCw=="
+        "size": 715851,
+        "sha256": "b5f0100516aa4b50ed88a6db386696a2fb346c6173b8ae0ccb311a24928c446b",
+        "signature": "29H8gIHXWYyWH1mNvXIM1yuOJEx/vgPsMDZYMauxV8oRepDvizgBXNCIJqdYjiNGZM3xDrrp8Xf1douLiZxwCg=="
     },
     "themes": {
         "star": {
