@@ -1,4 +1,4 @@
-# YCMS 2.0 功能与模块说明
+# 影云CMS 2.0 功能与模块说明
 
 > 适用版本：**v2.0.2** · 最后更新：2026-10-29
 > 后端实现：`backend/src/App.php`、`backend/src/Controllers/`、`backend/src/Support/`
@@ -11,7 +11,7 @@
 
 ## 1. 定位与技术架构
 
-YCMS 是一个以「个人站点」为默认形态的轻量内容管理系统：前台是可静态化的展示站，后台是单管理员的内容管理面板。
+影云CMS 是一个以「个人站点」为默认形态的轻量内容管理系统：前台是可静态化的展示站，后台是单管理员的内容管理面板。
 
 | 层次 | 技术选型 | 说明 |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ YCMS 是一个以「个人站点」为默认形态的轻量内容管理系统：
 | 草稿/文章增删改、分类标签页面媒体友链管理 | 否 | 是 |
 | 评论审核、系统更新、静态页重建 | 否 | 是 |
 
-**鉴权方式**：登录成功后服务端签发 24 小时有效的 `HttpOnly + SameSite=Lax` Cookie `ycms_token`，同时兼容 `Authorization: Bearer <token>`（便于脚本/CLI 调用）。写接口由 `Auth::requireAdmin()` 强制校验；公开接口只输出白名单字段。
+**鉴权方式**：登录成功后服务端签发 24 小时有效的 `HttpOnly + SameSite=Lax` Cookie `yinyun_token`，同时兼容 `Authorization: Bearer <token>`（便于脚本/CLI 调用）。写接口由 `Auth::requireAdmin()` 强制校验；公开接口只输出白名单字段。
 
 **默认账号门禁**：账号仍为 `admin / admin123` 时，除白名单接口外一律返回 403，`errors.code = must_change_credentials`；后台路由守卫会把所有页面重定向到 `/admin/#/setup`，必须同时修改用户名与密码后才能继续使用。
 
@@ -337,7 +337,7 @@ cd frontend
 npm run pack:theme     # 执行 build:site 后打包，零第三方依赖
 ```
 
-产出 `release/themes/ycms-theme-<slug>-<version>.zip`，并同步：
+产出 `release/themes/yinyun-cms-theme-<slug>-<version>.zip`，并同步：
 
 - 根目录 `themes.json`：主题清单（版本、包名、体积、sha256、下载地址）
 - `update.json` 的 `themes` 字段：供在线更新读取的主题摘要（旧客户端忽略未知字段）

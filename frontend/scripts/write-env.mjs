@@ -12,7 +12,7 @@ if (existsSync(envPath)) {
 }
 
 const content = [
-  'APP_NAME="ycms2.0"',
+  'APP_NAME="影云CMS"',
   'APP_ENV=production',
   'APP_URL=http://localhost:8080',
   'APP_TIMEZONE=Asia/Shanghai',

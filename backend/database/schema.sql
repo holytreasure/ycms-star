@@ -1,4 +1,4 @@
--- ycms2.0 数据库结构（SQLite）
+-- 影云CMS 数据库结构（SQLite）
 
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

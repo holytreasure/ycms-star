@@ -1,7 +1,7 @@
 {
-    "generated_at": "2026-11-01T16:37:27.111Z",
+    "generated_at": "2026-11-02T12:14:19.748Z",
     "core_version": "2.0.2",
-    "repository": "holytreasure/ycms-star",
+    "repository": "holytreasure/yinyun-cms-star",
     "flavor": "star",
     "themes": {
         "star": {
@@ -9,16 +9,16 @@
             "name": "星空主题",
             "version": "1.0.0",
             "author": "影云网络科技（石家庄）有限公司",
-            "description": "YCMS 2.0 星空星光主题（Canvas 三层star + 流星 + 玻璃拟态 + 紫青极光）",
+            "description": "影云CMS 2.0 星空星光主题（Canvas 三层star + 流星 + 玻璃拟态 + 紫青极光）",
             "license": "AGPL-3.0",
             "requires": {
                 "core": ">=2.0.2"
             },
             "preview": "preview.jpg",
-            "package": "ycms-theme-star-1.0.0.zip",
-            "size": 440566,
-            "sha256": "d1fedfd4b55707f31cab0a9fb3cddfa650bd08db794bdc5c867a0a201ec3ed59",
-            "url": "https://github.com/holytreasure/ycms-star/releases/download/v2.0.2/ycms-theme-star-1.0.0.zip"
+            "package": "yinyun-cms-theme-star-1.0.0.zip",
+            "size": 440587,
+            "sha256": "8396bd73c9b3c1852b2bfa65ede95092c91dc84e66518fd04f70774155cefe91",
+            "url": "https://github.com/holytreasure/yinyun-cms-star/releases/download/v2.0.2/yinyun-cms-theme-star-1.0.0.zip"
         }
     }
 }

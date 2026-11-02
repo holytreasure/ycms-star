@@ -1,10 +1,10 @@
-# YCMS 2.0 API 文档
+# 影云CMS 2.0 API 文档
 
 > 适用版本：**v2.0.2** · 最后更新：2026-10-29
 > 后端实现：`backend/src/App.php`（路由）+ `backend/src/Controllers/`（控制器）
 > 前端封装：`frontend/src/api/index.js`
 
-YCMS 采用「前端静态文件 + PHP JSON 接口」的同源架构，接口路径统一为 `/api/...`，零配置部署下通过真实文件 `/api.php/...` 访问。
+影云CMS 采用「前端静态文件 + PHP JSON 接口」的同源架构，接口路径统一为 `/api/...`，零配置部署下通过真实文件 `/api.php/...` 访问。
 
 ---
 
@@ -84,7 +84,7 @@ YCMS 采用「前端静态文件 + PHP JSON 接口」的同源架构，接口路
 登录成功后服务端写入 Cookie：
 
 ```
-ycms_token=<token>; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400
+yinyun_token=<token>; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400
 ```
 
 - 令牌保存在 `api_tokens` 表，有效期 24 小时
@@ -485,8 +485,8 @@ CORS_ALLOWED_ORIGINS=https://front.example.com,https://admin.example.com
 
 ```json
 {
-  "site_name": "ycms2.0",
-  "site_title": "ycms2.0 · 在代码与星空之间",
+  "site_name": "影云CMS",
+  "site_title": "影云CMS · 在代码与星空之间",
   "site_description": "…",
   "site_keywords": "…",
   "site_icp": "",

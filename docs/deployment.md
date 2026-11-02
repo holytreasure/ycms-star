@@ -1,6 +1,6 @@
-# ycms2.0 宝塔面板单站部署指南
+# 影云CMS 宝塔面板单站部署指南
 
-> 适用版本：**ycms2.0 v2.0.2** · 前后端 + SQLite 部署在**同一个宝塔站点**下
+> 适用版本：**影云CMS v2.0.2** · 前后端 + SQLite 部署在**同一个宝塔站点**下
 
 ---
 
@@ -27,7 +27,7 @@
 **服务器上的目录布局**（本文以此为准）：
 
 ```
-/www/wwwroot/ycms/
+/www/wwwroot/yinyun-cms/
 ├── backend/                    # PHP 后端（整个目录上传）
 │   ├── config/
 │   ├── database/
@@ -69,10 +69,10 @@
    cd frontend && npm install && npm run build
    ```
    产物已输出到项目根目录的 `public/`（前台）与 `public/admin/`（后台）。
-2. 用宝塔 **文件** 菜单（或 FTP/SFTP）把整个项目目录上传到 `/www/wwwroot/ycms/`：
+2. 用宝塔 **文件** 菜单（或 FTP/SFTP）把整个项目目录上传到 `/www/wwwroot/yinyun-cms/`：
 
    ```
-   /www/wwwroot/ycms/
+   /www/wwwroot/yinyun-cms/
    ├── public/        ← 网站根目录（必须完整上传）
    ├── backend/
    └── frontend/      （可只保留源码，也可整个上传）
@@ -83,7 +83,7 @@
 **方式 B：Git 拉取（服务器需装 Node）**
 
 ```bash
-cd /www/wwwroot/ycms
+cd /www/wwwroot/yinyun-cms
 git clone <你的仓库地址> .
 cd frontend && npm install && npm run build
 ```
@@ -95,7 +95,7 @@ cd frontend && npm install && npm run build
 | 配置项 | 值 |
 | --- | --- |
 | 域名 | 你的域名（如 `cms.example.com`） |
-| 根目录 | `/www/wwwroot/ycms/public` ← **注意是 public 目录** |
+| 根目录 | `/www/wwwroot/yinyun-cms/public` ← **注意是 public 目录** |
 | PHP 版本 | 选择步骤 1 安装的 8.2+ |
 | 数据库 | **不需要创建**（使用 SQLite） |
 | FTP | 不需要 |
@@ -137,25 +137,25 @@ cd frontend && npm install && npm run build
 location ^~ /api/ {
     include fastcgi_params;
     fastcgi_pass unix:/tmp/php-cgi-83.sock;
-    fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/public/api.php;
+    fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/public/api.php;
 }
 
 location ^~ /post/ {
     include fastcgi_params;
     fastcgi_pass unix:/tmp/php-cgi-83.sock;
-    fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+    fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
 }
 
 location = /sitemap.xml {
     include fastcgi_params;
     fastcgi_pass unix:/tmp/php-cgi-83.sock;
-    fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+    fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
 }
 
 location = /robots.txt {
     include fastcgi_params;
     fastcgi_pass unix:/tmp/php-cgi-83.sock;
-    fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+    fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
 }
 ```
 
@@ -166,7 +166,7 @@ server {
     listen 80;
     server_name cms.example.com;                          # ← 改成你的域名
 
-    root /www/wwwroot/ycms/public;                        # ← 站点根目录
+    root /www/wwwroot/yinyun-cms/public;                        # ← 站点根目录
     index index.html;
 
     client_max_body_size 20m;                             # 上传大小限制
@@ -174,7 +174,7 @@ server {
     # ========== 1. 媒体文件：后端上传目录直出 ==========
     # ^~ 优先级高于静态资源正则，避免 /storage 下的图片被误判
     location ^~ /storage/ {
-        alias /www/wwwroot/ycms/backend/storage/;         # ← 后端存储目录
+        alias /www/wwwroot/yinyun-cms/backend/storage/;         # ← 后端存储目录
         add_header Cache-Control "public, max-age=31536000";
         # 媒体目录禁止执行 PHP（安全）
         location ~ \.(php|phar|phtml)$ { deny all; }
@@ -184,7 +184,7 @@ server {
     location /api/ {
         include fastcgi_params;
         fastcgi_pass unix:/tmp/php-cgi-83.sock;           # ← 按实际 PHP 版本改（82/83）
-        fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+        fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
         # SCRIPT_FILENAME 必须写在 include 之后，覆盖 fastcgi_params 里的同名参数
     }
 
@@ -193,21 +193,21 @@ server {
     location ^~ /post/ {
         include fastcgi_params;
         fastcgi_pass unix:/tmp/php-cgi-83.sock;           # ← 按实际 PHP 版本改（82/83）
-        fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+        fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
         fastcgi_param SCRIPT_NAME /index.php;
     }
 
     location = /sitemap.xml {
         include fastcgi_params;
         fastcgi_pass unix:/tmp/php-cgi-83.sock;
-        fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+        fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
         fastcgi_param SCRIPT_NAME /index.php;
     }
 
     location = /robots.txt {
         include fastcgi_params;
         fastcgi_pass unix:/tmp/php-cgi-83.sock;
-        fastcgi_param SCRIPT_FILENAME /www/wwwroot/ycms/backend/public/index.php;
+        fastcgi_param SCRIPT_FILENAME /www/wwwroot/yinyun-cms/backend/public/index.php;
         fastcgi_param SCRIPT_NAME /index.php;
     }
 
@@ -239,8 +239,8 @@ ls /tmp/php-cgi-*.sock
 SSH 执行（把 `www` 换成你实际的运行用户，宝塔默认 `www`）：
 
 ```bash
-chown -R www:www /www/wwwroot/ycms/backend/storage
-chmod -R 755 /www/wwwroot/ycms/backend/storage
+chown -R www:www /www/wwwroot/yinyun-cms/backend/storage
+chmod -R 755 /www/wwwroot/yinyun-cms/backend/storage
 ```
 
 > `storage/` 必须可写：SQLite 数据库文件（`database.sqlite`）和上传的图片都在里面。
@@ -251,7 +251,7 @@ chmod -R 755 /www/wwwroot/ycms/backend/storage
 SSH 进入后端目录：
 
 ```bash
-cd /www/wwwroot/ycms/backend
+cd /www/wwwroot/yinyun-cms/backend
 
 # 1. 建表（必需）
 php database/migrate.php
@@ -290,7 +290,7 @@ php database/seed.php
 
 **Q2：后台能登录，但上传的图片不显示（404）**
 - 检查 Nginx 的 `/storage/` 段 `alias` 路径是否指向 `backend/storage/`
-- 检查文件是否真的上传成功：`ls -l /www/wwwroot/ycms/backend/storage/uploads/`
+- 检查文件是否真的上传成功：`ls -l /www/wwwroot/yinyun-cms/backend/storage/uploads/`
 
 **Q3：前台刷新页面 404**
 - SPA 需要 `location / { try_files $uri $uri/ /index.html; }`，检查是否被其他规则覆盖
@@ -302,7 +302,7 @@ php database/seed.php
 **Q5：如何备份数据**
 - SQLite 是单文件，直接复制即完成备份：
   ```bash
-  cp /www/wwwroot/ycms/backend/storage/database.sqlite ~/backup-$(date +%F).sqlite
+  cp /www/wwwroot/yinyun-cms/backend/storage/database.sqlite ~/backup-$(date +%F).sqlite
   ```
 - 建议同时打包 `storage/uploads/`（媒体文件）
 
@@ -332,7 +332,7 @@ php database/seed.php
 
 ### 忘记密码怎么办（应急重置）
 
-`backend/tools/reset-password.php` 是独立的高危重置文件，**不随安装包/升级包分发**，忘记密码时从仓库下载：[reset-password.php](https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/backend/tools/reset-password.php)。
+`backend/tools/reset-password.php` 是独立的高危重置文件，**不随安装包/升级包分发**，忘记密码时从仓库下载：[reset-password.php](https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/backend/tools/reset-password.php)。
 
 1. 下载后通过宝塔「文件」或 SFTP 将其上传到 `backend/public/` 目录
 2. 访问 `https://你的域名/reset-password.php`，点击「确认重置密码」
@@ -373,14 +373,14 @@ npm run pack:all          # 打包本仓库全部主题
 
 | 产物 | 说明 |
 | --- | --- |
-| `release/themes/ycms-theme-<slug>-<version>.zip` | 主题包本体，含 `theme.json` / 外壳 / 资源 / 模板 / 预览图 |
+| `release/themes/yinyun-cms-theme-<slug>-<version>.zip` | 主题包本体，含 `theme.json` / 外壳 / 资源 / 模板 / 预览图 |
 | `themes.json` | 主题清单：版本、包名、体积、sha256、下载地址（按 slug 合并写入） |
 | `update.json` 的 `themes` 字段 | 在线更新读取的主题摘要 |
 
 **打包单主题发行包**（各自带全套后端，用于「一主题一安装包」分发）：
 
 ```bash
-node scripts/build-release.mjs --edition=oss --theme=star   # → release/ycms-<version>-oss-star/
+node scripts/build-release.mjs --edition=oss --theme=star   # → release/yinyun-cms-<version>-oss-star/
 node scripts/build-release.mjs --edition=oss --theme=default
 ```
 
@@ -391,18 +391,18 @@ node scripts/build-release.mjs --edition=oss --theme=default
 站点检查更新、下载升级包所用的仓库地址由根目录 `release-source.json` 决定，该文件随包分发：
 
 ```json
-{ "repository": "sjzyingyunkeji/ycms-2.0", "branch": "main", "channel": "stable", "flavor": "default" }
+{ "repository": "sjzyingyunkeji/yinyun-cms", "branch": "main", "channel": "stable", "flavor": "default" }
 ```
 
 - 清单地址：`https://raw.githubusercontent.com/<repository>/<branch>/update.json`
 - 包地址：`https://github.com/<repository>/releases/download/v<version>/<file>`
 - `flavor` 为发行风味（`default` / `star`）。站点只接受同风味清单与升级包，两条发行线不会互相覆盖；离线包导入时同样校验。
 - 星空主题独立仓库只需把该文件改为自身仓库，升级逻辑与主仓库完全一致。
-- 单仓库出星空包时显式指定仓库：`node scripts/build-release.mjs --theme=star --repository=holytreasure/ycms-star`。
+- 单仓库出星空包时显式指定仓库：`node scripts/build-release.mjs --theme=star --repository=holytreasure/yinyun-cms-star`。
 
 > 主题包内文件顺序与时间戳固定，同内容 sha256 稳定，可用于完整性校验。
 > 主题源码按仓库拆分：主仓库只含默认主题 `frontend/site`，星空版仓库只含 `frontend/star`；站点根入口由本仓库唯一主题接管，主题在线安装/切换属于商业版能力。
 
 ---
 
-*文档对应版本 ycms2.0 v2.0.2 · 技术栈 PHP 8.2+ / Vue 3 / SQLite*
+*文档对应版本 影云CMS v2.0.2 · 技术栈 PHP 8.2+ / Vue 3 / SQLite*

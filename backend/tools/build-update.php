@@ -1,10 +1,10 @@
 <?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -35,8 +35,8 @@ declare(strict_types=1);
  *   --full=1               同时生成可全新安装的包（保留 install.php）
  *
  * 产物：
- *   release/ycms-{version}.zip         升级包（含 manifest.json，不含任何用户数据）
- *   release/ycms-{version}-install.zip 全新安装包（--full 时生成）
+ *   release/yinyun-cms-{version}.zip         升级包（含 manifest.json，不含任何用户数据）
+ *   release/yinyun-cms-{version}-install.zip 全新安装包（--full 时生成）
  *   release/update.json                更新清单，上传到仓库根目录 / Release 附件
  */
 
@@ -97,7 +97,7 @@ function fail(string $message): never
 function source_config(string $root): array
 {
     $defaults = [
-        'repository' => 'sjzyingyunkeji/ycms-2.0',
+        'repository' => 'sjzyingyunkeji/yinyun-cms',
         'branch' => 'main',
         'channel' => 'stable',
         'flavor' => 'default',
@@ -115,7 +115,7 @@ function source_config(string $root): array
     }
 
     if (preg_match('#^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$#', $defaults['repository']) !== 1) {
-        $defaults['repository'] = 'sjzyingyunkeji/ycms-2.0';
+        $defaults['repository'] = 'sjzyingyunkeji/yinyun-cms';
     }
     if (preg_match('#^[A-Za-z0-9_.-]+$#', $defaults['branch']) !== 1) {
         $defaults['branch'] = 'main';
@@ -181,10 +181,10 @@ function build(string $root, array $args): void
 
     $source = source_config($root);
     $flavor = (string) ($args['flavor'] ?? $source['flavor']);
-    $zipName = 'ycms-' . $version . '-' . $flavor . '.zip';
+    $zipName = 'yinyun-cms-' . $version . '-' . $flavor . '.zip';
     if ($flavor === 'default') {
         // 默认版沿用历史包名，避免破坏既有下载链接
-        $zipName = 'ycms-' . $version . '.zip';
+        $zipName = 'yinyun-cms-' . $version . '.zip';
     }
     $zipPath = $outDir . '/' . $zipName;
     $count = build_archive($root, $zipPath, $version, $channel, $flavor, false);
@@ -267,7 +267,7 @@ function build(string $root, array $args): void
 
     // 全新安装包：额外保留 install.php，供新站点从零安装
     if ((string) ($args['full'] ?? '0') === '1') {
-        $installName = 'ycms-' . $version . ($flavor === 'default' ? '' : '-' . $flavor) . '-install.zip';
+        $installName = 'yinyun-cms-' . $version . ($flavor === 'default' ? '' : '-' . $flavor) . '-install.zip';
         $installPath = $outDir . '/' . $installName;
         $installCount = build_archive($root, $installPath, $version, $channel, $flavor, true);
         echo '  安装包：' . $installPath . '（' . round((int) filesize($installPath) / 1048576, 2)

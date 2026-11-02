@@ -1,4 +1,4 @@
-# YCMS 2.0 - Apache / LiteSpeed 兼容规则
+# 影云CMS 2.0 - Apache / LiteSpeed 兼容规则
 # Nginx 无需任何配置：API 走真实文件 /api.php，页面为静态文件
 
 <IfModule mod_rewrite.c>

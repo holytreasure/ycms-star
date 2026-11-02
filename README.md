@@ -1,5 +1,5 @@
 <h1 align="center">
-ycms2.0-star
+影云CMS-star
 </h1>
 
 <p align="center">
@@ -10,15 +10,15 @@ ycms2.0-star
 
 </p>
 
-本项目基于 YCMS2.0 二次开发而来，是一个基于 Vue 3 的前端项目，在保留 YCMS2.0 核心功能的基础上，重绘了整套 UI 界面。
+本项目基于 影云CMS2.0 二次开发而来，是一个基于 Vue 3 的前端项目，在保留 影云CMS2.0 核心功能的基础上，重绘了整套 UI 界面。
 
-YCMS2.0 是一个非常优秀的开源项目，详见：<https://github.com/sjzyingyunkeji/ycms-2.0>
+影云CMS2.0 是一个非常优秀的开源项目，详见：<https://github.com/sjzyingyunkeji/yinyun-cms>
 
 ## 技术栈
 
 - **界面风格**：Canvas 星空动画（星星闪烁 / 流星 / 鼠标视差）+ 玻璃拟态（Glassmorphism）设计
 - **前端**：Vue 3 + Vite + Vue Router + Pinia + Tailwind CSS
-- **后端**：基于 YCMS2.0 的后端服务，未作任何修改
+- **后端**：基于 影云CMS2.0 的后端服务，未作任何修改
 - **数据库**：SQLite
 
 ## 项目预览
@@ -62,7 +62,7 @@ npm run pack:theme     # 将默认主题打包为 zip 压缩包
 
 ### 部署
 
-参见：[deployment.md](https://github.com/holytreasure/ycms-star/blob/main/docs/deployment.md)
+参见：[deployment.md](https://github.com/holytreasure/yinyun-cms-star/blob/main/docs/deployment.md)
 
 ## 功能介绍
 
@@ -94,7 +94,7 @@ npm run pack:theme     # 将默认主题打包为 zip 压缩包
 
 ## API
 
-参见：[api.md](https://github.com/holytreasure/ycms-star/blob/main/docs/api.md)
+参见：[api.md](https://github.com/holytreasure/yinyun-cms-star/blob/main/docs/api.md)
 
 ## 视觉设计系统
 
@@ -130,4 +130,4 @@ npm run pack:theme     # 将默认主题打包为 zip 压缩包
 
 ## 致谢
 
-本项目以 YCMS2.0 作为整体基座，在此感谢影云网络科技（石家庄）有限公司的开发团队。同时也感谢 [Vue](https://vuejs.org)、[Vite](https://vitejs.dev)、[PHP](https://www.php.net) 与 [SQLite](https://www.sqlite.org) 等优秀开源项目奠定的技术底座。
+本项目以 影云CMS2.0 作为整体基座，在此感谢影云网络科技（石家庄）有限公司的开发团队。同时也感谢 [Vue](https://vuejs.org)、[Vite](https://vitejs.dev)、[PHP](https://www.php.net) 与 [SQLite](https://www.sqlite.org) 等优秀开源项目奠定的技术底座。

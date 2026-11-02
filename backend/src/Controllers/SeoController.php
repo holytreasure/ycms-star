@@ -1,10 +1,10 @@
 <?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -58,7 +58,7 @@ final class SeoController
             // 找不到则回退到 SPA（前端会展示 404 页）
             http_response_code(404);
             $this->output($this->renderPage(
-                $this->renderTemplate('404', ['site_name' => (string) ($this->settings()['site_name'] ?? 'ycms2.0')]),
+                $this->renderTemplate('404', ['site_name' => (string) ($this->settings()['site_name'] ?? '影云CMS')]),
                 ['title' => '文章不存在', 'description' => '文章不存在或已下线', 'robots' => 'noindex, follow']
             ));
             return;
@@ -101,7 +101,7 @@ final class SeoController
         $settings = $this->settings();
         $base = $this->baseUrl();
         $canonical = $base . '/post/' . rawurlencode((string) $post['slug']);
-        $siteName = (string) ($settings['site_name'] ?? 'ycms2.0');
+        $siteName = (string) ($settings['site_name'] ?? '影云CMS');
         $description = mb_substr(trim((string) ($post['summary'] ?? '')), 0, 160);
         if ($description === '') {
             $description = mb_substr(strip_tags(Markdown::toHtml((string) $post['content'])), 0, 160);
@@ -200,7 +200,7 @@ final class SeoController
         $settings = $this->settings();
         $base = $this->baseUrl();
         $canonical = $base . '/post/' . rawurlencode((string) $post['slug']);
-        $siteName = (string) ($settings['site_name'] ?? 'ycms2.0');
+        $siteName = (string) ($settings['site_name'] ?? '影云CMS');
         $description = mb_substr(trim((string) ($post['summary'] ?? '')), 0, 160);
         if ($description === '') {
             $description = mb_substr(strip_tags(Markdown::toHtml((string) $post['content'])), 0, 160);
@@ -270,7 +270,7 @@ final class SeoController
 
         $settings = $this->settings();
         $base = $this->baseUrl();
-        $siteName = (string) ($settings['site_name'] ?? 'ycms2.0');
+        $siteName = (string) ($settings['site_name'] ?? '影云CMS');
         $canonical = $base . '/page/' . rawurlencode((string) $page['slug']);
         $description = mb_substr(strip_tags(Markdown::toHtml((string) $page['content'])), 0, 160);
 
@@ -497,7 +497,7 @@ final class SeoController
         $template = $this->template();
         $head = [];
 
-        $title = (string) ($meta['title'] ?? 'ycms2.0');
+        $title = (string) ($meta['title'] ?? '影云CMS');
         $description = (string) ($meta['description'] ?? '');
         $keywords = (string) ($meta['keywords'] ?? '');
         $canonical = (string) ($meta['canonical'] ?? '');
@@ -593,7 +593,7 @@ final class SeoController
         }
 
         return [
-            'site_name' => (string) ($this->settings()['site_name'] ?? 'ycms2.0'),
+            'site_name' => (string) ($this->settings()['site_name'] ?? '影云CMS'),
             'title' => (string) $post['title'],
             'summary' => $summary,
             'has_summary' => $summary !== '',
@@ -722,7 +722,7 @@ final class SeoController
         // 兜底模板：主题缺失时保证接口不 500
         return self::$template = '<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8" />'
             . '<meta name="viewport" content="width=device-width, initial-scale=1.0" />'
-            . '<title>ycms2.0</title></head><body><div id="app"></div></body></html>';
+            . '<title>影云CMS</title></head><body><div id="app"></div></body></html>';
     }
 
     /**

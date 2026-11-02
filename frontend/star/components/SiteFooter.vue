@@ -1,9 +1,9 @@
 <script setup>
 /**
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -67,7 +67,7 @@ function socialHref(key) {
     <div class="max-w-6xl mx-auto px-5 py-12">
       <div class="glass-medium p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="text-center md:text-left">
-          <div class="font-serif text-lg text-slate-200 mb-1">{{ site.settings.site_name || 'ycms2.0' }}</div>
+          <div class="font-serif text-lg text-slate-200 mb-1">{{ site.settings.site_name || '影云CMS' }}</div>
           <p class="text-sm text-star-dim max-w-md">{{ site.settings.site_description }}</p>
         </div>
 
@@ -103,7 +103,7 @@ function socialHref(key) {
       <div class="mt-6 text-center text-xs text-star-dim space-y-1">
         <div>
           © {{ new Date().getFullYear() }} {{ site.settings.owner_name || '星辰' }} · Powered by
-          <span class="text-star-glow/80">ycms2.0</span>
+          <span class="text-star-glow/80">影云CMS</span>
           <span v-if="site.settings.site_icp" class="ml-2">
             <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener" class="hover:text-slate-400 transition-colors">{{ site.settings.site_icp }}</a>
           </span>

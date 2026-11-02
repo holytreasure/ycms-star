@@ -1,10 +1,10 @@
 <?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -34,7 +34,7 @@ final class UpdateService
      * 实际地址由 release-source.json 推导（见 manifestUrl()）；
      * 该常量仅用于兼容旧调用方与「配置文件缺失」时的默认仓库标识。
      */
-    public const MANIFEST_URL = 'https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/update.json';
+    public const MANIFEST_URL = 'https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/update.json';
 
     /** 发布源配置文件（随包分发，决定去哪个仓库检查更新） */
     private const SOURCE_FILE = '/release-source.json';
@@ -97,7 +97,7 @@ final class UpdateService
     /**
      * 发布源配置（release-source.json）
      *
-     * 每个仓库各自持有一份：主仓库指向 ycms-2.0，主题仓库指向自己的仓库。
+     * 每个仓库各自持有一份：主仓库指向 yinyun-cms-2.0，主题仓库指向自己的仓库。
      * 同一份后端代码因此不用为「两个仓库」写两套升级逻辑，只换地址。
      *
      * @return array<string, string>
@@ -109,7 +109,7 @@ final class UpdateService
         }
 
         $defaults = [
-            'repository' => 'sjzyingyunkeji/ycms-2.0',
+            'repository' => 'sjzyingyunkeji/yinyun-cms',
             'branch' => 'main',
             'channel' => 'stable',
             'flavor' => 'default',
@@ -128,7 +128,7 @@ final class UpdateService
 
         // 仓库标识必须形如 owner/name，分支只允许安全字符，避免被拼出奇怪的 URL
         if (preg_match('#^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$#', $defaults['repository']) !== 1) {
-            $defaults['repository'] = 'sjzyingyunkeji/ycms-2.0';
+            $defaults['repository'] = 'sjzyingyunkeji/yinyun-cms';
         }
         if (preg_match('#^[A-Za-z0-9_.-]+$#', $defaults['branch']) !== 1) {
             $defaults['branch'] = 'main';
@@ -390,7 +390,7 @@ final class UpdateService
                 CURLOPT_CONNECTTIMEOUT => $timeout,
                 CURLOPT_TIMEOUT => $timeout * 3,
                 CURLOPT_SSL_VERIFYPEER => true,
-                CURLOPT_USERAGENT => 'ycms-updater/' . self::currentVersion(),
+                CURLOPT_USERAGENT => 'yinyun-updater/' . self::currentVersion(),
             ]);
             $body = curl_exec($ch);
             $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -688,7 +688,7 @@ final class UpdateService
                 CURLOPT_CONNECTTIMEOUT => 8,
                 CURLOPT_TIMEOUT => 180,
                 CURLOPT_SSL_VERIFYPEER => true,
-                CURLOPT_USERAGENT => 'ycms-updater/' . self::currentVersion(),
+                CURLOPT_USERAGENT => 'yinyun-updater/' . self::currentVersion(),
             ]);
             $ok = curl_exec($ch);
             $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -770,7 +770,7 @@ final class UpdateService
         }
         $zip->close();
 
-        // GitHub Release 常见结构为 ycms-2.0.1/backend/...，这里统一提升一层
+        // GitHub Release 常见结构为 yinyun-cms-2.0.1/backend/...，这里统一提升一层
         $dir = self::normalizeRoot($dir);
 
         if (!is_file($dir . '/manifest.json')) {

@@ -1,10 +1,10 @@
 <?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -65,10 +65,10 @@ function seedDatabase(): void
         // 文章
         $posts = [
             [
-                'title' => '欢迎来到 ycms2.0',
-                'slug' => 'welcome-to-ycms2',
+                'title' => '欢迎来到 影云CMS',
+                'slug' => 'welcome-to-yinyun-cms',
                 'summary' => '一个用 PHP 8.2+ 与 Vue 3 打造的星空风格内容管理系统，本文带你快速了解它的全部功能。',
-                'content' => "## 关于 ycms2.0\n\n**ycms2.0** 是一个轻量而完整的个人内容管理系统，采用以下技术栈构建：\n\n- 后端：PHP 8.2+（严格类型、枚举、只读属性等现代特性）\n- 前端：Vue 3 + Vite + Tailwind CSS\n- 数据库：SQLite（零配置，WAL 模式）\n- 风格：星空星光主题 + 玻璃拟态设计\n\n### 主要功能\n\n1. 文章管理（Markdown 编辑器、草稿/发布、置顶）\n2. 分类与标签管理\n3. 独立页面管理\n4. 媒体库（图片上传）\n5. 评论审核\n6. 友链管理\n7. 站点设置\n8. 仪表盘统计\n\n### 快速上手\n\n登录后台后，你可以在「文章」中创建你的第一篇内容。所有内容都支持 Markdown 语法。\n\n> 星空之所以美丽，是因为每一颗星星都在自己的位置上闪耀。\n\n```php\n// PHP 8.2+ 示例\nenum PostStatus: string {\n    case Draft = 'draft';\n    case Published = 'published';\n}\n```\n\n祝你使用愉快！",
+                'content' => "## 关于 影云CMS\n\n**影云CMS** 是一个轻量而完整的个人内容管理系统，采用以下技术栈构建：\n\n- 后端：PHP 8.2+（严格类型、枚举、只读属性等现代特性）\n- 前端：Vue 3 + Vite + Tailwind CSS\n- 数据库：SQLite（零配置，WAL 模式）\n- 风格：星空星光主题 + 玻璃拟态设计\n\n### 主要功能\n\n1. 文章管理（Markdown 编辑器、草稿/发布、置顶）\n2. 分类与标签管理\n3. 独立页面管理\n4. 媒体库（图片上传）\n5. 评论审核\n6. 友链管理\n7. 站点设置\n8. 仪表盘统计\n\n### 快速上手\n\n登录后台后，你可以在「文章」中创建你的第一篇内容。所有内容都支持 Markdown 语法。\n\n> 星空之所以美丽，是因为每一颗星星都在自己的位置上闪耀。\n\n```php\n// PHP 8.2+ 示例\nenum PostStatus: string {\n    case Draft = 'draft';\n    case Published = 'published';\n}\n```\n\n祝你使用愉快！",
                 'cover_image' => '',
                 'category_id' => 1,
                 'status' => 'published',
@@ -214,13 +214,13 @@ EOT,
 
         // 站点设置
         $settings = [
-            ['key' => 'site_name', 'value' => 'ycms2.0', 'group_name' => 'site'],
-            ['key' => 'site_title', 'value' => 'ycms2.0 · 在代码与星空之间', 'group_name' => 'site'],
+            ['key' => 'site_name', 'value' => '影云CMS', 'group_name' => 'site'],
+            ['key' => 'site_title', 'value' => '影云CMS · 在代码与星空之间', 'group_name' => 'site'],
             ['key' => 'logo_type', 'value' => 'image', 'group_name' => 'site'],
             ['key' => 'logo_image', 'value' => '/logo.svg', 'group_name' => 'site'],
             ['key' => 'hero_suffix', 'value' => '的数字星空', 'group_name' => 'site'],
-            ['key' => 'site_description', 'value' => '一个记录技术、生活与星空的个人站点，基于 ycms2.0 构建。', 'group_name' => 'site'],
-            ['key' => 'site_keywords', 'value' => 'ycms,技术博客,星空,PHP,Vue', 'group_name' => 'site'],
+            ['key' => 'site_description', 'value' => '一个记录技术、生活与星空的个人站点，基于 影云CMS 构建。', 'group_name' => 'site'],
+            ['key' => 'site_keywords', 'value' => 'yinyun-cms,技术博客,星空,PHP,Vue', 'group_name' => 'site'],
             ['key' => 'site_icp', 'value' => '', 'group_name' => 'site'],
             ['key' => 'owner_name', 'value' => '星尘', 'group_name' => 'site'],
             ['key' => 'owner_bio', 'value' => '热爱技术与星空的开发者，白天写代码，夜晚拍星星。', 'group_name' => 'site'],

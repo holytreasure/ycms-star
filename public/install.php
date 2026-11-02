@@ -1,10 +1,10 @@
 <?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -132,7 +132,7 @@ if (INSTALLED) {
                 'site_name' => $siteName,
                 'site_title' => $siteName . ' · 在代码与星空之间',
                 'site_description' => '一个记录技术、生活与星空的个人站点。',
-                'site_keywords' => 'ycms,技术博客,星空',
+                'site_keywords' => 'yinyun-cms,技术博客,星空',
                 'site_icp' => '',
                 'owner_name' => $ownerName !== '' ? $ownerName : '站长',
                 'owner_bio' => '热爱技术的开发者，白天写代码，夜晚拍星星。',
@@ -259,7 +259,7 @@ $pageTitle = INSTALLED ? '已安装' : '安装向导';
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title><?= e($pageTitle) ?> · YCMS 2.0</title>
+<title><?= e($pageTitle) ?> · 影云CMS 2.0</title>
 <style>
 :root{--bg:#04061a;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.10);--text:#dbe2f3;--dim:#8b93ab;--violet:#8f83c9;--cyan:#6fa9bd;--ok:#5ec08a;--err:#e0708a}
 *{box-sizing:border-box}
@@ -294,7 +294,7 @@ a{color:#b9c6ee}
 <body>
 <div class="wrap">
   <div class="brand">
-    <h1>YCMS 2.0</h1>
+    <h1>影云CMS 2.0</h1>
     <p>轻量内容管理系统 · 安装向导</p>
   </div>
 

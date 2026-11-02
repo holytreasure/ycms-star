@@ -1,5 +1,5 @@
 <h1 align="center">
-ycms2.0
+影云CMS
 </h1>
 
 <p align="center">
@@ -20,12 +20,12 @@ ycms2.0
 
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/docs/screenshots/site-home.jpg" alt="首页"></td>
-    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/docs/screenshots/site-posts.jpg" alt="文章列表"></td>
+    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/docs/screenshots/site-home.jpg" alt="首页"></td>
+    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/docs/screenshots/site-posts.jpg" alt="文章列表"></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/docs/screenshots/site-post-detail.jpg" alt="文章详情"></td>
-    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/docs/screenshots/site-archive.jpg" alt="归档"></td>
+    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/docs/screenshots/site-post-detail.jpg" alt="文章详情"></td>
+    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/docs/screenshots/site-archive.jpg" alt="归档"></td>
   </tr>
 </table>
 
@@ -33,15 +33,15 @@ ycms2.0
 
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/docs/screenshots/admin-login.jpg" alt="后台登录"></td>
-    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/ycms-2.0/main/docs/screenshots/site-page-about.jpg" alt="独立页面"></td>
+    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/docs/screenshots/admin-login.jpg" alt="后台登录"></td>
+    <td><img src="https://raw.githubusercontent.com/sjzyingyunkeji/yinyun-cms/main/docs/screenshots/site-page-about.jpg" alt="独立页面"></td>
   </tr>
 </table>
 
 ## 项目目录
 
 ```
-ycms/
+yinyun-cms/
 ├── backend/                  # PHP后端
 │   ├── public/index.php      # 应用入口
 │   ├── src/
@@ -81,7 +81,7 @@ ycms/
 - 后台管理：`/admin/`
 
 
-> 完整部署文档：[deployment.md](https://github.com/sjzyingyunkeji/ycms-2.0/blob/main/docs/deployment.md)
+> 完整部署文档：[deployment.md](https://github.com/sjzyingyunkeji/yinyun-cms/blob/main/docs/deployment.md)
 
 ### 本地开发
 
@@ -202,14 +202,14 @@ php backend/tools/build-static.php
 
 ## 项目文档
 
-- [features.md](https://github.com/sjzyingyunkeji/ycms-2.0/blob/main/docs/features.md)：功能说明、数据模型、主题契约
-- [api.md](https://github.com/sjzyingyunkeji/ycms-2.0/blob/main/docs/api.md)：接口完整参考文档
-- [deployment.md](https://github.com/sjzyingyunkeji/ycms-2.0/blob/main/docs/deployment.md)：部署操作指南
+- [features.md](https://github.com/sjzyingyunkeji/yinyun-cms/blob/main/docs/features.md)：功能说明、数据模型、主题契约
+- [api.md](https://github.com/sjzyingyunkeji/yinyun-cms/blob/main/docs/api.md)：接口完整参考文档
+- [deployment.md](https://github.com/sjzyingyunkeji/yinyun-cms/blob/main/docs/deployment.md)：部署操作指南
 
 ## 致谢
 
 本项目的后台管理面板基于字节跳动开源的 [Arco Design Vue](https://arco.design) 组件库构建。
-感谢 Arco Design 团队提供的高质量 Vue 3 企业级组件与设计规范，让 ycms2.0 的后台在交互体验
+感谢 Arco Design 团队提供的高质量 Vue 3 企业级组件与设计规范，让 影云CMS 的后台在交互体验
 与视觉一致性上开箱即用，也让自定义 `ui.css` 得以与组件库主色变量同步覆盖、保持统一观感。
 
 - **Arco Design Vue**：<https://arco.design> —— 字节跳动开源的企业级 UI 组件库（MIT 协议）

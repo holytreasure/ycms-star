@@ -3,7 +3,7 @@
   "name": "星空主题",
   "version": "1.0.0",
   "author": "影云网络科技（石家庄）有限公司",
-  "description": "YCMS 2.0 星空星光主题（Canvas 三层star + 流星 + 玻璃拟态 + 紫青极光）",
+  "description": "影云CMS 2.0 星空星光主题（Canvas 三层star + 流星 + 玻璃拟态 + 紫青极光）",
   "license": "AGPL-3.0",
   "requires": { "core": ">=2.0.2" },
   "entry": "index.html",

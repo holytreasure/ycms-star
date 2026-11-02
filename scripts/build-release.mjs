@@ -12,7 +12,7 @@
  *   node scripts/build-release.mjs --theme=star             # 只带星空主题的全套安装包
  *   node scripts/build-release.mjs --theme=default          # 只带默认主题（输出名不带后缀）
  *   node scripts/build-release.mjs --theme=star --out=dist/x  # 指定输出目录（调试用）
- *   node scripts/build-release.mjs --theme=star --repository=holytreasure/ycms-star
+ *   node scripts/build-release.mjs --theme=star --repository=holytreasure/yinyun-cms-star
  *                                                          # 单仓库出星空包时指定其更新源仓库
  *   node scripts/build-release.mjs --flavor=star             # 显式覆盖清单里的发行风味
  *
@@ -60,7 +60,7 @@ const version = readFileSync(path.join(root, 'VERSION'), 'utf8').trim()
 /* ==================== 发布源（release-source.json） ==================== */
 
 const releaseSource = (() => {
-  const fallback = { repository: 'sjzyingyunkeji/ycms-2.0', branch: 'main', channel: 'stable', flavor: 'default' }
+  const fallback = { repository: 'sjzyingyunkeji/yinyun-cms', branch: 'main', channel: 'stable', flavor: 'default' }
   const file = path.join(root, 'release-source.json')
   if (!existsSync(file)) return fallback
   try {
@@ -81,7 +81,7 @@ const releaseSource = (() => {
 
 const repositoryOverride = argOf('repository').trim()
 if (repositoryOverride && !/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repositoryOverride)) {
-  console.error('--repository 需为 owner/name 形式，例如 holytreasure/ycms-star')
+  console.error('--repository 需为 owner/name 形式，例如 holytreasure/yinyun-cms-star')
   process.exit(1)
 }
 
@@ -106,7 +106,7 @@ if (themeSlug && flavor !== 'default' && sourceRepository === releaseSource.repo
   process.exit(1)
 }
 
-const defaultName = `ycms-${version}-${edition}`
+const defaultName = `yinyun-cms-${version}-${edition}`
 // 指定主题时，非默认主题追加后缀，避免覆盖已有发行目录
 const suffix = themeSlug && themeSlug !== 'default' ? `-${themeSlug}` : ''
 const outArg = argOf('out')
@@ -278,10 +278,10 @@ const modulesFile = path.join(outDir, 'backend/config/modules.php')
 const header = `<?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  */
 
 declare(strict_types=1);

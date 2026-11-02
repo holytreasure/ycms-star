@@ -1,10 +1,10 @@
 <?php
 
 /*
- * YCMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
+ * 影云CMS 2.0 | 基于 PHP + Node.js 的轻量内容管理系统
  * Copyright © 2026 影云网络科技（石家庄）有限公司
  * 开源协议：AGPLv3 License
- * GitHub：https://github.com/sjzyingyunkeji/ycms-2.0
+ * GitHub：https://github.com/sjzyingyunkeji/yinyun-cms
  * 本程序遵循 AGPLv3 协议：公网提供服务、衍生分发时，必须同步开放对应源码；
  * 如有商用授权、定制合作需求，欢迎联系：info@sjzyingyun.cn
  */
@@ -12,7 +12,7 @@
 
 /**
  * ============================================================
- * ycms2.0 应急密码重置工具（高危文件）
+ * 影云CMS 应急密码重置工具（高危文件）
  * ============================================================
  *
  * 【用途】忘记管理员密码时，将本文件上传至 backend/public/ 目录，
@@ -26,7 +26,7 @@
  *   1. 本文件是“后门”级工具，任何能访问它的人都能重置你的密码！
  *   2. 重置完成后必须立即删除本文件（见页面大红字提示）。
  *   3. 平时请将此文件保存在项目 tools/ 目录中，不要上传到运行目录。
- *   4. ycms2.0 后台在登录成功后会检测运行目录中是否存在本文件并提醒删除。
+ *   4. 影云CMS 后台在登录成功后会检测运行目录中是否存在本文件并提醒删除。
  *
  * 【可选参数】?username=新用户名&password=新密码  可指定重置目标
  * ============================================================
@@ -108,7 +108,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>ycms2.0 应急密码重置（高危）</title>
+    <title>影云CMS 应急密码重置（高危）</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -157,7 +157,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
 </head>
 <body>
     <div class="card">
-        <h1>ycms2.0 应急密码重置</h1>
+        <h1>影云CMS 应急密码重置</h1>
         <div class="sub">高危工具 · 仅限站长在服务器上临时使用</div>
 
         <?php if ($step === 'done'): ?>
@@ -197,7 +197,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
         <?php endif; ?>
 
         <div class="foot">
-            ycms2.0 v2.0.2 · 本文件应存放于项目 tools/ 目录，仅在需要时临时放入运行目录。
+            影云CMS v2.0.2 · 本文件应存放于项目 tools/ 目录，仅在需要时临时放入运行目录。
         </div>
     </div>
 </body>

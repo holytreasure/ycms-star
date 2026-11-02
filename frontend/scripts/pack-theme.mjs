@@ -3,7 +3,7 @@
  *
  * 把已安装的主题目录 public/themes/<slug>/ 打成可分发主题包：
  *
- *   release/themes/ycms-theme-<slug>-<version>.zip
+ *   release/themes/yinyun-cms-theme-<slug>-<version>.zip
  *   ├── theme.json
  *   ├── index.html
  *   ├── assets/
@@ -49,7 +49,7 @@ const coreVersion = readFileSync(path.join(root, 'VERSION'), 'utf8').trim()
  * 主仓库与主题仓库各持一份，下载地址据此推导，不再写死仓库名。
  */
 const source = (() => {
-  const fallback = { repository: 'sjzyingyunkeji/ycms-2.0', branch: 'main', flavor: 'default' }
+  const fallback = { repository: 'sjzyingyunkeji/yinyun-cms', branch: 'main', flavor: 'default' }
   const file = path.join(root, 'release-source.json')
   if (!existsSync(file)) return fallback
   try {
@@ -220,7 +220,7 @@ for (const slug of listThemes()) {
   const files = collect(dir)
   const zip = buildZip(files.map((f) => ({ name: f.name, data: readFileSync(f.full) })))
   const version = String(meta.version || coreVersion)
-  const filename = `ycms-theme-${slug}-${version}.zip`
+  const filename = `yinyun-cms-theme-${slug}-${version}.zip`
   const target = path.join(outDir, filename)
   writeFileSync(target, zip)
 
