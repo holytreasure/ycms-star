@@ -19,10 +19,10 @@ declare(strict_types=1);
  *   php backend/tools/build-update.php --keygen
  *
  *   # 2) 打包新版本
- *   php backend/tools/build-update.php --version=2.0.2 --notes="新增功能A|修复问题B"
+ *   php backend/tools/build-update.php --version=2.0.3 --notes="新增功能A|修复问题B"
  *
  * 可选参数：
- *   --version=2.0.2        版本号（默认读取根目录 VERSION）
+ *   --version=2.0.3        版本号（默认读取根目录 VERSION）
  *   --key=路径              Ed25519 私钥（默认 backend/storage/update-secret.key）
  *   --out=路径              产物目录（默认 release/）
  *   --channel=stable       更新渠道
@@ -50,7 +50,7 @@ $root = dirname(__DIR__, 2);
 $args = parse_args($argv);
 
 if (isset($args['help'])) {
-    echo "用法：php backend/tools/build-update.php --version=2.0.2 [--key=私钥路径] [--notes=\"条目1|条目2\"]\n";
+    echo "用法：php backend/tools/build-update.php --version=2.0.3 [--key=私钥路径] [--notes=\"条目1|条目2\"]\n";
     echo "      php backend/tools/build-update.php --keygen\n";
     exit(0);
 }
@@ -170,7 +170,7 @@ function build(string $root, array $args): void
         $version = trim((string) @file_get_contents($root . '/VERSION'));
     }
     if (!preg_match('/^\d+\.\d+\.\d+$/', $version)) {
-        fail('版本号格式应为 x.y.z，例如 2.0.2');
+        fail('版本号格式应为 x.y.z，例如 2.0.3');
     }
 
     $channel = (string) ($args['channel'] ?? 'stable');

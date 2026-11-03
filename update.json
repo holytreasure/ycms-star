@@ -1,33 +1,31 @@
 {
-    "latest": "2.0.2",
+    "latest": "2.0.3",
     "flavor": "star",
     "channel": "stable",
     "min_version": "2.0.0",
     "min_php": "8.2",
-    "published_at": "2026-11-02T20:14:38+08:00",
+    "published_at": "2026-11-03T21:57:43+08:00",
     "changelog": [
-        "品牌更名为影云CMS（YinyunCMS），星空仓库更名为 yinyun-cms-star",
-        "修复了若干问题",
-        "修复单主题仓库站点根入口归属，避免前台白屏",
-        "同步上游仓库的更新"
+        "新增自定义页脚功能，支持 HTML 内容",
+        "修复了已知问题"
     ],
     "breaking": false,
     "changelog_url": "",
     "package": {
-        "url": "https://github.com/holytreasure/yinyun-cms-star/releases/download/v2.0.2/yinyun-cms-2.0.2-star.zip",
+        "url": "https://github.com/holytreasure/yinyun-cms-star/releases/download/v2.0.3/yinyun-cms-2.0.3-star.zip",
         "mirrors": [],
-        "size": 715939,
-        "sha256": "d14900bd3b57f42b3a71325bac5559cf06058e20e3e59f9df895914f978533f4",
-        "signature": "PpAXJPlqw2flgueWWkWxHP9KBDwtAQZ124cXmNLF40CG6Y7MaJgSrjOLbcyVlg8GM1BRyaV/t/8lY4YY56hXCg=="
+        "size": 716607,
+        "sha256": "d356e6380dbe7287cb0b3e2c3d2d8c8dc6703207ee233a4db99d41b644843ded",
+        "signature": "gv1mq5ApSz33s+AXLX7hdM20jPdRpUkA1ZLC7qSGctCI+if8gyR2YxIO4t31ZMTeOvsxwKo/+owJXVgF21wmDg=="
     },
     "themes": {
         "star": {
             "latest": "1.0.0",
             "package": "yinyun-cms-theme-star-1.0.0.zip",
-            "size": 440587,
-            "sha256": "8396bd73c9b3c1852b2bfa65ede95092c91dc84e66518fd04f70774155cefe91",
+            "size": 440718,
+            "sha256": "ea1c838dcb6911642afadac0e66c3942300be0b2b138d2c000d7528c479b71c7",
             "requires": {
-                "core": ">=2.0.2"
+                "core": ">=2.0.3"
             }
         }
     }

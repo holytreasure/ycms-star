@@ -1,6 +1,6 @@
 {
-    "generated_at": "2026-11-02T12:14:19.748Z",
-    "core_version": "2.0.2",
+    "generated_at": "2026-11-03T13:57:28.694Z",
+    "core_version": "2.0.3",
     "repository": "holytreasure/yinyun-cms-star",
     "flavor": "star",
     "themes": {
@@ -12,13 +12,13 @@
             "description": "影云CMS 2.0 星空星光主题（Canvas 三层star + 流星 + 玻璃拟态 + 紫青极光）",
             "license": "AGPL-3.0",
             "requires": {
-                "core": ">=2.0.2"
+                "core": ">=2.0.3"
             },
             "preview": "preview.jpg",
             "package": "yinyun-cms-theme-star-1.0.0.zip",
-            "size": 440587,
-            "sha256": "8396bd73c9b3c1852b2bfa65ede95092c91dc84e66518fd04f70774155cefe91",
-            "url": "https://github.com/holytreasure/yinyun-cms-star/releases/download/v2.0.2/yinyun-cms-theme-star-1.0.0.zip"
+            "size": 440718,
+            "sha256": "ea1c838dcb6911642afadac0e66c3942300be0b2b138d2c000d7528c479b71c7",
+            "url": "https://github.com/holytreasure/yinyun-cms-star/releases/download/v2.0.3/yinyun-cms-theme-star-1.0.0.zip"
         }
     }
 }

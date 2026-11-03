@@ -26,6 +26,7 @@ const form = ref({
   site_description: '',
   site_keywords: '',
   site_icp: '',
+  footer_html: '',
   logo_type: 'text',
   logo_image: '',
   hero_suffix: '',
@@ -199,6 +200,17 @@ onMounted(async () => {
               <label class="block text-xs text-[var(--y-text-secondary)] mb-1.5">备案号（选填）</label>
               <input v-model="form.site_icp" class="y-input" placeholder="如：京ICP备XXXXXXXX号" />
             </div>
+          </div>
+          <div>
+            <label class="flex items-center gap-1.5 text-xs text-[var(--y-text-secondary)] mb-1.5">
+              页脚底部信息
+              <HelpTip text="支持 HTML，可填写备案链接、版权声明等；留空则显示默认版权信息。请勿粘贴来源不明的脚本。" />
+            </label>
+            <textarea
+              v-model="form.footer_html"
+              class="y-input min-h-[90px] resize-y font-mono !text-xs"
+              placeholder="例如：&lt;span&gt;© 2026 影云网络科技（石家庄）有限公司&lt;/span&gt;"
+            />
           </div>
         </div>
       </div>

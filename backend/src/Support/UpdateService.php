@@ -83,7 +83,7 @@ final class UpdateService
                 return $v;
             }
         }
-        return '2.0.2';
+        return '2.0.3';
     }
 
     /**

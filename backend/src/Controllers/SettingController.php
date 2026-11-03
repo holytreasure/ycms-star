@@ -40,6 +40,7 @@ final class SettingController
                 'site_description' => $settings['site_description'] ?? '',
                 'site_keywords' => $settings['site_keywords'] ?? '',
                 'site_icp' => $settings['site_icp'] ?? '',
+                'footer_html' => $settings['footer_html'] ?? '',
                 'logo_type' => $settings['logo_type'] ?? 'text',
                 'logo_image' => $settings['logo_image'] ?? '',
                 'hero_suffix' => $settings['hero_suffix'] ?? '',
@@ -70,7 +71,7 @@ final class SettingController
 
         // 注意：博主资料（昵称/头像/简介/社交账号）不在此处维护，统一走 /api/auth/profile
         $allowedKeys = [
-            'site_name', 'site_title', 'site_description', 'site_keywords', 'site_icp',
+            'site_name', 'site_title', 'site_description', 'site_keywords', 'site_icp', 'footer_html',
             'logo_type', 'logo_image', 'hero_suffix',
             'nav_links', 'site_closed', 'site_closed_message', 'comment_audit', 'posts_per_page',
             'home_post_sort', 'track_enabled', 'antibot_enabled', 'antibot_limit', 'antibot_ban_minutes',
@@ -123,13 +124,17 @@ final class SettingController
                     $value = (string) max(1, min(1440, (int) $value));
                 }
 
+                // 页脚自定义内容允许更长（HTML 片段）
+                $maxLength = $key === 'footer_html' ? 5000 : 2000;
+                $stored = mb_substr((string) $value, 0, $maxLength);
+
                 $exists = Database::selectOne('SELECT key FROM settings WHERE key = :key', ['key' => $key]);
                 if ($exists !== null) {
-                    Database::update('settings', ['value' => mb_substr((string) $value, 0, 2000), 'updated_at' => now()], 'key = :key', ['key' => $key]);
+                    Database::update('settings', ['value' => $stored, 'updated_at' => now()], 'key = :key', ['key' => $key]);
                 } else {
                     Database::insert('settings', [
                         'key' => $key,
-                        'value' => mb_substr((string) $value, 0, 2000),
+                        'value' => $stored,
                         'group_name' => 'site',
                     ]);
                 }

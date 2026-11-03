@@ -80,7 +80,7 @@ onMounted(async () => {
 
     <!-- 左侧品牌区（大屏可见） -->
     <div class="relative z-10 hidden lg:flex w-[46%] xl:w-[42%] flex-col justify-between p-12 bg-[var(--y-surface)] border-r border-[var(--y-border)]">
-      <BrandLogo size="lg" />
+      <BrandLogo size="lg" product />
 
       <div>
         <h1 class="text-[32px] leading-tight font-bold text-[var(--y-text)] mb-4">
@@ -101,7 +101,7 @@ onMounted(async () => {
       </div>
 
       <div class="text-xs text-[var(--y-text-muted)]">
-        © {{ new Date().getFullYear() }} {{ site.settings.site_name || '影云CMS' }}
+        © {{ new Date().getFullYear() }} 影云网络科技（石家庄）有限公司
       </div>
     </div>
 
@@ -110,7 +110,7 @@ onMounted(async () => {
       <div class="w-full max-w-[360px] page-enter">
         <!-- 小屏 Logo -->
         <div class="lg:hidden mb-10">
-          <BrandLogo size="lg" />
+          <BrandLogo size="lg" product />
         </div>
 
         <h2 class="text-xl font-semibold text-[var(--y-text)] mb-1.5">登录后台</h2>
@@ -159,7 +159,7 @@ onMounted(async () => {
 
         <div class="mt-10 flex items-center justify-between text-xs">
           <a href="/" class="text-[var(--y-text-muted)] hover:text-[var(--y-primary)] transition-colors duration-200">← 返回前台</a>
-          <span class="font-mono text-[var(--y-text-disabled)]">v2.0.2</span>
+          <span class="font-mono text-[var(--y-text-disabled)]">v2.0.3</span>
         </div>
       </div>
     </div>

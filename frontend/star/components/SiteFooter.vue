@@ -101,7 +101,9 @@ function socialHref(key) {
       </div>
 
       <div class="mt-6 text-center text-xs text-star-dim space-y-1">
-        <div>
+        <!-- 自定义页脚信息（站点设置，支持 HTML） -->
+        <div v-if="site.settings.footer_html" class="footer-custom" v-html="site.settings.footer_html" />
+        <div v-else>
           © {{ new Date().getFullYear() }} {{ site.settings.owner_name || '星辰' }} · Powered by
           <span class="text-star-glow/80">影云CMS</span>
           <span v-if="site.settings.site_icp" class="ml-2">
@@ -134,3 +136,15 @@ function socialHref(key) {
     </BaseModal>
   </footer>
 </template>
+
+<style scoped>
+/* 自定义页脚（支持 HTML）：统一链接观感 */
+.footer-custom :deep(a) {
+  color: #c4b5fd;
+  text-decoration: none;
+}
+.footer-custom :deep(a:hover) {
+  color: #e9d5ff;
+  text-decoration: underline;
+}
+</style>

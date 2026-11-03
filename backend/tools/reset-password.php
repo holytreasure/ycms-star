@@ -197,7 +197,7 @@ if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
         <?php endif; ?>
 
         <div class="foot">
-            影云CMS v2.0.2 · 本文件应存放于项目 tools/ 目录，仅在需要时临时放入运行目录。
+            影云CMS v2.0.3 · 本文件应存放于项目 tools/ 目录，仅在需要时临时放入运行目录。
         </div>
     </div>
 </body>
